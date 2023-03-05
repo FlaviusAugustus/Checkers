@@ -162,20 +162,4 @@ const Uint8* UserInterface::getKeyboardState() {
 
 }
 
-void UserInterface::drawBoard() {
 
-	colorRGB currentColor;
-
-	for (int i = 0; i < ScreenWidth; i += TileSize) {
-		for (int j = 0; j < ScreenHeight; j += TileSize) {
-
-			currentColor = ((i + j) / TileSize) % 2 ? ChessComGreen : ChessComCream;
-			DrawRectangle(i, j, TileSize, TileSize, currentColor, currentColor);
-
-		}
-
-	}
-
-	drawScene();
-
-}

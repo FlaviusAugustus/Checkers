@@ -10,6 +10,8 @@
 
 class UserInterface {
 
+protected:
+
 	char buffer[MaxBufferSize];
 	SDL_Window* window;
 	SDL_Surface* screenSurface;
@@ -45,8 +47,6 @@ public:
 	void changeBackgroundColor();
 
 	void drawScene();
-
-	void drawBoard();
 
 	void clearScreen();
 

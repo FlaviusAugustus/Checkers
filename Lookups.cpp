@@ -3,22 +3,22 @@
 
 Lookups::Lookups() {
 
-	Piecies[0] = 1;
+	Pieces[0] = 1;
 
-	for (int i = 1; i < 32; i++) {
+	for (int i = 1; i < 64; i++) {
 
-		Piecies[i] = Piecies[i - 1] << 1;
+		Pieces[i] = Pieces[i - 1] << 1;
 
 	}
 
-	Mask1 = Piecies[A1] | Piecies[C1] | Piecies[E1] | Piecies[G1];
-	Mask2 = Piecies[B2] | Piecies[D2] | Piecies[F2] | Piecies[H2];
-	Mask3 = Piecies[A3] | Piecies[C3] | Piecies[E3] | Piecies[G3];
-	Mask6 = Piecies[B4] | Piecies[D4] | Piecies[F4] | Piecies[H4];
-	Mask7 = Piecies[A7] | Piecies[C7] | Piecies[E7] | Piecies[G7];
-	Mask8 = Piecies[B8] | Piecies[D8] | Piecies[F8] | Piecies[H8];
+	Mask1 = Pieces[A1] | Pieces[C1] | Pieces[E1] | Pieces[G1];
+	Mask2 = Pieces[B2] | Pieces[D2] | Pieces[F2] | Pieces[H2];
+	Mask3 = Pieces[A3] | Pieces[C3] | Pieces[E3] | Pieces[G3];
+	Mask6 = Pieces[B6] | Pieces[D6] | Pieces[F6] | Pieces[H6];
+	Mask7 = Pieces[A7] | Pieces[C7] | Pieces[E7] | Pieces[G7];
+	Mask8 = Pieces[B8] | Pieces[D8] | Pieces[F8] | Pieces[H8];
 
-	MaskA = Piecies[A1] | Piecies[A3] | Piecies[A5] | Piecies[A7];
-	MaskH = Piecies[H2] | Piecies[H4] | Piecies[H6] | Piecies[H8];
+	MaskA = Pieces[A1] | Pieces[A3] | Pieces[A5] | Pieces[A7];
+	MaskH = Pieces[H2] | Pieces[H4] | Pieces[H6] | Pieces[H8];
 
 }
