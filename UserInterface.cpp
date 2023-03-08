@@ -71,7 +71,7 @@ bool UserInterface::init()
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
 	SDL_SetHint(SDL_HINT_RENDER_VSYNC, "1");
 	SDL_RenderSetLogicalSize(renderer, ScreenWidth, ScreenHeight);
-	SDL_SetWindowTitle(window, "Grzech Gracjan 193579");
+	SDL_SetWindowTitle(window, "Checkers");
 
 	return true;
 
@@ -159,6 +159,12 @@ const Uint8* UserInterface::getKeyboardState() {
 
 	SDL_PumpEvents();
 	return keyState;
+
+}
+
+bool UserInterface::loadFromText(const char* text, colorRGB color) {
+
+	return true;
 
 }
 

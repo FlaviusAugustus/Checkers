@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "SDL.h"
 #include "SDL_main.h"
+#include <SDL_ttf.h>
 #include "Constants.h"
 #include "Sprite.h"
 #include "RGB.h"
@@ -16,6 +17,7 @@ protected:
 	SDL_Window* window;
 	SDL_Surface* screenSurface;
 	SDL_Renderer* renderer;
+	TTF_Font* font;
 	const Uint8* keyState;
 
 public:
@@ -31,6 +33,8 @@ public:
 	bool loadTexture(const char* path, SDL_Texture** texture);
 
 	bool init();
+
+	bool loadFromText(const char* text, colorRGB color);
 
 	void DrawTexture(Sprite sprite);
 
