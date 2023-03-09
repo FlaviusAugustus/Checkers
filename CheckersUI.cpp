@@ -16,49 +16,48 @@ void CheckersUI::drawBoard(Bitboard white, Bitboard black) {
 
 	}
 
+	int shiftCount = 0;
 
-	for (int i = ScreenHeight - TileSize; i >= 0; i -= TileSize) {
-		for(int j = 0; j < ScreenHeight; j += TileSize) {
-		
-			if(white & 1) {
+	while(white || black) {
+
+		if(white & 1) {
 			
-				currentColor = whiteColor;
-				DrawRectangle(j + TileSize / 4, i + TileSize / 4, TileSize/2, TileSize/2, currentColor, currentColor);
-
-			}
-
-			if(black & 1) {
-			
-				currentColor = blackColor;
-				DrawRectangle(j + TileSize/4, i + TileSize / 4, TileSize/2, TileSize/2, currentColor, currentColor);
-			
-			}
-
-			white >>= 1;
-			black >>= 1;
+			currentColor = whiteColor;
+			DrawRectangle(TileSize * (shiftCount % 8) + TileSize / 4, ScreenHeight - TileSize * (shiftCount / 8) - TileSize + TileSize / 4, TileSize / 2, TileSize / 2, currentColor, currentColor);
 
 		}
-	
-	}
 
+		if(black & 1) {
+			
+			currentColor = blackColor;
+			DrawRectangle(TileSize * (shiftCount % 8) + TileSize/4, ScreenHeight - TileSize * (shiftCount / 8) - TileSize + TileSize / 4, TileSize/2, TileSize/2, currentColor, currentColor);
+			
+		}
+
+		shiftCount++;
+		white >>= 1;
+		black >>= 1;
+
+	}
+	
 	drawScene();
 
 }
 
 void CheckersUI::drawLegalMoves(Bitboard legalMoves) {
 
-	for (int i = ScreenHeight - TileSize; i >= 0; i -= TileSize) {
-		for (int j = 0; j < ScreenHeight; j += TileSize) {
+	int shiftCount = 0;
 
-			if (legalMoves & 1) {
+	while(legalMoves >>= 1) {
 
-				DrawRectangle(j, i, TileSize, TileSize, highlightColor, highlightColor);
-
-			}
-
-			legalMoves >>= 1;
+		shiftCount++;
+	
+		if(legalMoves & 1) {
+		
+			DrawRectangle(TileSize * (shiftCount % 8), ScreenHeight - TileSize*(shiftCount/8) - TileSize, TileSize, TileSize, highlightColor, highlightColor);
+		
 		}
-
+	
 	}
 
 	drawScene();
